@@ -6,6 +6,7 @@ My little script to automate setup new machine
 # Use
 
 As root, execute
+
 	# ./paraconfig.sh [destination_host]
 
 example: 
