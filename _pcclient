@@ -1,0 +1,40 @@
+#!/bin/bash
+
+## PARACONFIG ##
+
+# Configure history
+if ! grep -q "## PARACONFIG: do not remove this line ##" "/etc/profile"
+then
+
+cat >> /etc/profile <<EOF
+
+## PARACONFIG: do not remove this line ##
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=100000
+HISTFILESIZE=100000
+HISTTIMEFORMAT='%F %T '
+EOF
+fi
+
+# Upgrade system
+apt-get update
+apt-get dist-upgrade -y
+
+# Install utilities
+apt-get install joe vim htop iotop bmon strace -y
+
+# Configure time zone to Europe/Madrid
+echo "Europe/Madrid" > /etc/timezone
+dpkg-reconfigure -f noninteractive tzdata
+
+# Configure locales
+locale-gen --purge en_US.UTF-8 es_ES.UTF-8
+echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' > /etc/default/locale
