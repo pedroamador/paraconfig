@@ -2,6 +2,18 @@
 
 ## PARACONFIG ##
 
+# Configure locales
+cat >> /etc/locale.gen <<EOF
+es_ES.UTF-8 UTF-8
+en_US.UTF-8 UTF-8
+EOF
+locale-gen --purge en_US.UTF-8 es_ES.UTF-8
+echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' > /etc/default/locale
+
+# Configure time zone to Europe/Madrid
+echo "Europe/Madrid" > /etc/timezone
+dpkg-reconfigure -f noninteractive tzdata
+
 # Configure history
 if ! grep -q "## PARACONFIG: do not remove this line ##" "/etc/profile"
 then
@@ -30,11 +42,3 @@ apt-get dist-upgrade -y
 
 # Install utilities
 apt-get install joe vim htop iotop bmon strace -y
-
-# Configure time zone to Europe/Madrid
-echo "Europe/Madrid" > /etc/timezone
-dpkg-reconfigure -f noninteractive tzdata
-
-# Configure locales
-locale-gen --purge en_US.UTF-8 es_ES.UTF-8
-echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' > /etc/default/locale
