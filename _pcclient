@@ -43,4 +43,4 @@ apt-get update
 apt-get dist-upgrade -y
 
 # Install utilities
-apt-get install fail2ban joe vim htop iotop bmon strace rsync -y
+apt-get install bash-completion fail2ban joe vim htop iotop bmon strace rsync -y
