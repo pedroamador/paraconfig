@@ -28,5 +28,5 @@ rsync -a /etc/apt/apt.conf $1:/etc/apt/apt.conf &> /dev/null
 # Copy client config script
 scp $basedir/_pcclient $1:/tmp/pc_client.sh
 # Execute client config script
-ssh $1 "bash /tmp/pc_client.sh"
+ssh -A -t $1 "bash /tmp/pc_client.sh"
 exit $?

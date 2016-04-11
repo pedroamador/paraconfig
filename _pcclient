@@ -43,4 +43,4 @@ apt-get update
 apt-get dist-upgrade -y
 
 # Install utilities
-apt-get install bash-completion bmon fail2ban htop iotop joe psmisc rsync strace telnet vim -y
+apt-get install bash-completion bmon fail2ban htop iotop joe psmisc rsync strace telnet vim ccze -y
