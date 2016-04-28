@@ -10,10 +10,10 @@ es_ES.UTF-8 UTF-8
 en_US.UTF-8 UTF-8
 EOF
 locale-gen --purge en_US.UTF-8 es_ES.UTF-8
-echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' > /etc/default/locale
+echo -e 'LANG="es_ES.UTF-8"\nLANGUAGE="es_ES:es"\n' > /etc/default/locale
 
 # Configure time zone to Europe/Madrid
-echo "Europe/Madrid" > /etc/timezone
+echo "Etc/UTC" > /etc/timezone
 dpkg-reconfigure -f noninteractive tzdata
 
 # Configure history
