@@ -12,7 +12,7 @@ EOF
 locale-gen --purge en_US.UTF-8 es_ES.UTF-8
 echo -e 'LANG="es_ES.UTF-8"\nLANGUAGE="es_ES:es"\n' > /etc/default/locale
 
-# Configure time zone to Europe/Madrid
+# Configure UTC time zone
 echo "Etc/UTC" > /etc/timezone
 dpkg-reconfigure -f noninteractive tzdata
 
@@ -43,4 +43,4 @@ apt-get update
 apt-get dist-upgrade -y
 
 # Install utilities
-apt-get install bash-completion bmon fail2ban htop iotop joe psmisc rsync strace telnet vim ccze -y
+apt-get install bash-completion bmon ccze ethtool fail2ban glances htop iotop mtr psmisc rsync strace telnet vim -y
