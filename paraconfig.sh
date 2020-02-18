@@ -3,7 +3,7 @@
 ## PARACONFIG ##
 basedir=$(dirname $0)
 
-echo "Paraconfig (c) Pedro Amador 2014-2016"
+echo "Paraconfig (c) Pedro Amador 2014-2020"
 echo
 
 # Check parameters
